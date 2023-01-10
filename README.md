@@ -30,3 +30,7 @@ The links to the "learn" and "shop" pages of each wine item should lead on url f
 
 ## Bonus Points:
 - If you use BEM for classNames naming
+
+
+## Made changes
+tsconfig.json --> "target": "es2016", my preferable js syntax
