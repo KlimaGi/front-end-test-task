@@ -1,4 +1,4 @@
-export interface WineItemInterface {
+export type WineItemInterface = {
   id: String,
   name: String,
   type: String
