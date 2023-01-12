@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+* {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.main {
+  padding: 4rem;
+  background-color: #EDECEC;
+}
+
+.container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.card{
+  height: 338px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  justify-content: flex-end;
+  position: relative;
+}
+.card__title{
+  font-size: 26px;
+  line-height: 31px;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card__title:hover{
+  background-color: #ffffff;
+  display: block;
+  overflow: visible;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  transition: .6s ease;
+}
+
+.card__type{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding: 14px 0;
+}
+.card__image-box{
+  width: 270px;
+  height: 240px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__btn-container{
+  display: flex;
+  justify-content: space-around;
+}
+.btn{
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.icon{
+  display: inline-block;
+  height: 23px;
+  width: 14px;
+  background-size: cover;
+}
+.icon-row{
+  background-image: url('../assets/row-icon.svg');
+}
+.icon-row:hover, .icon-row:active {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+/* todo: rethink about icons color change variations */

@@ -17,11 +17,10 @@ const AllItems: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       {
         data && data.map((item) => <SingleItem item={item} key={`${item.id}`} />)
       }
-
     </div>
   )
 }

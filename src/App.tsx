@@ -1,10 +1,10 @@
 import React from 'react';
 import AllItems from './components/all-items';
-import './App.css';
+import './styles/index.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="main">
       <AllItems />
     </div>
   );
