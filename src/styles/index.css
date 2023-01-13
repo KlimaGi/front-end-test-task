@@ -67,7 +67,7 @@
 }
 .card__btn-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 /* -------- btn -------- */
 .card__btn {
@@ -77,11 +77,11 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 6rem;
   color: var(--color-black);
   background-color: #ffffff00;
-  padding: 14px 0; 
+  padding: 14px 0;
 }
 
 .card__btn:hover{
