@@ -10,6 +10,7 @@
 
 * {
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
 }
 
@@ -22,6 +23,10 @@
   display: flex;
   gap: 1.5rem;
 }
+
+.d-flex{
+  display: flex;
+}
 /* -------- card -------- */
 .card{
   height: 338px;
@@ -33,7 +38,8 @@
 }
 .card__title{
   font-size: 26px;
-  line-height: 31px;
+  padding-bottom: 4px;
+  /* line-height: 31px; */
   font-weight: 600;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -78,6 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1.2rem;
   width: 6rem;
   color: var(--color-black);
   background-color: #ffffff00;
@@ -95,3 +102,31 @@
   fill: var(--color-bordo);
 }
 
+.check-btn {
+  display: flex;
+  border-style: none;
+  background-color: #ffffff00;
+  align-items: center;
+  padding-right: 14px;
+  margin: 14px 0;
+}
+
+.check-div{
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-white);
+  border-radius: 2px;
+  background-color: var(--color-grey);
+  margin-right: 14px;
+}
+
+.check-div--bordo{
+  background-color: var(--color-bordo);
+}
+.check-div--grey {
+  background-color: var(--color-grey);
+}
+.check-btn__title{
+  font-size: 16px;
+  font-weight: 600;
+}
