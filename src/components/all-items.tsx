@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { get } from '../plugins/http';
 import { WineItemInterface } from '../types/main-types';
 import SingleItem from './single-item';
-import FilterButton from './filter-button';
+import FilterBlock from './filter-block';
 
 const AllItems: React.FC = () => {
+
   const [data, setData] = useState<WineItemInterface[]>([]);
 
   const [filteredData, setFilteredData] = useState<WineItemInterface[]>(data);
 
-  const [filterTypes, setFilterTypes] = useState(['sweet', 'semi-dry']);
-  const [changed, setChanged] = useState(false);
+  const [filterTypes, setFilterTypes] = useState([]);
 
   useEffect(() => {
     const allList = async () => {
@@ -21,57 +21,37 @@ const AllItems: React.FC = () => {
     };
     allList();
   }, []);
-  console.log('data-po-1-eff', data);
 
   useEffect(() => {
     if (data.length !== 0) {
-      console.log('data-eff-2', data);
-      console.log('filterTypes', filterTypes);
-
       const result = filterTypes.map(type => {
         const filteredData = data.filter(wine => wine.type === type);
         return filteredData;
       }).flat();
 
-      console.log('result', result);
       setFilteredData(result);
     }
-    console.log('data is null');
-
-  }, [changed])
-
-  console.log('filteredData', filteredData);
+    console.log('filterTypes', filterTypes);
+  }, [filterTypes])
 
   return (
     <div>
-      <div className='d-flex'>
-        <FilterButton text='dry' />
-        <FilterButton text='semi-dry' />
-        <FilterButton text='sweet' />
-      </div>
-
-      <button onClick={() => setChanged(!changed)}>active</button>
+      <FilterBlock filterTypes={filterTypes} setFilterTypes={setFilterTypes} />
 
       <div className='container'>
         {
-          data && data.map((item) => <SingleItem item={item} key={`${item.id}`} />)
-        }
-
-      </div>
-      <div className='container'>
-
-        {
-          filteredData && filteredData.map((item) => <SingleItem item={item} key={`${item.id}`} />)
+          filterTypes.length > 0
+            ? filteredData.map((item) => <SingleItem item={item} key={`${item.id}`} />)
+            : data.map((item) => <SingleItem item={item} key={`${item.id}`} />)
         }
       </div>
+
     </div>
   )
 }
-// todo: filter istraukti i isorinielementa
+// todo: filter istraukti i isorini elementa
 // todo: learn - shop iveiklinti su react-params
 // todo: one item page su react-params = pritaikyti solo elemento parodyma atskiram page
 // todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
-
-
 
 export default AllItems;
