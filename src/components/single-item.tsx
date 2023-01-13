@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { WineItemInterface } from '../types/main-types';
+import SmallIcon from './small-icon';
 
 
 type SingleItemProps = {
@@ -7,6 +8,8 @@ type SingleItemProps = {
 }
 
 const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
+
+  const [color, setColor] = useState('black')
 
   return (
     <div className='card'>
@@ -16,11 +19,24 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
         <img src='assets/vino-1.png' alt='bottle of wine' />
       </div>
       <div className='card__btn-container'>
-        <button className='btn'>
+
+        <button
+          onMouseOver={() => setColor('bordo')}
+          onMouseLeave={() => setColor('black')}
+          className='card__btn'>
           <span>learn</span>
-          <span className='icon icon-row'></span>
+          <SmallIcon color={color} />
         </button>
-        <button className='grey'>shop</button>
+
+        <button
+          onMouseOver={() => setColor('bordo')}
+          onMouseLeave={() => setColor('black')}
+          className='card__btn'
+        >
+          <span>shop</span>
+          <SmallIcon color={color} />
+        </button>
+
       </div>
     </div>
   )
