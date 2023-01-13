@@ -67,5 +67,11 @@ const AllItems: React.FC = () => {
     </div>
   )
 }
+// todo: filter istraukti i isorinielementa
+// todo: learn - shop iveiklinti su react-params
+// todo: one item page su react-params = pritaikyti solo elemento parodyma atskiram page
+// todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
+
+
 
 export default AllItems;
