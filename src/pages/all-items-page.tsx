@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { get } from '../plugins/http';
 import { WineItemInterface } from '../types/main-types';
-import SingleItem from '../components/single-item';
-import FilterBlock from '../components/filter-block';
+import SingleItem from '../components/single-item/single-item';
+import FilterBlock from '../components/filter-block/filter-block';
 
 const AllItemsPage: React.FC = () => {
 
@@ -49,7 +49,7 @@ const AllItemsPage: React.FC = () => {
     </div>
   )
 }
-// todo: filter istraukti i isorini elementa
+
 // todo: one item page su react-params = pritaikyti solo elemento parodyma atskiram page
 // todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
 

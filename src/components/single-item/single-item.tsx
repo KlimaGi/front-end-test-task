@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { WineItemInterface } from '../types/main-types';
-import Button from './button';
+import { WineItemInterface } from '../../types/main-types';
+import ButtonWithSmallIconRow from './button-with-small-icon-row';
 
 type SingleItemProps = {
   item: WineItemInterface
@@ -20,8 +20,8 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
         <img src='assets/vino-1.png' alt='bottle of wine' />
       </div>
       <div className='card__btn-container'>
-        <Button text='learn' func={handleLearnClick} />
-        <Button text='shop' func={handleShopClick} />
+        <ButtonWithSmallIconRow text='learn' func={handleLearnClick} />
+        <ButtonWithSmallIconRow text='shop' func={handleShopClick} />
       </div>
     </div>
   )

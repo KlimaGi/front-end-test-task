@@ -6,7 +6,7 @@ type ButtonProp = {
   func: Function
 }
 
-const Button: React.FC<ButtonProp> = ({ text, func }) => {
+const ButtonWithSmallIconRow: React.FC<ButtonProp> = ({ text, func }) => {
   const [color, setColor] = useState('black')
   return (
     <button
@@ -21,4 +21,4 @@ const Button: React.FC<ButtonProp> = ({ text, func }) => {
   )
 }
 
-export default Button;
+export default ButtonWithSmallIconRow;
