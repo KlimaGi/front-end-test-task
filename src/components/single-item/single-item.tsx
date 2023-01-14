@@ -9,8 +9,8 @@ type SingleItemProps = {
 
 const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
   const nav = useNavigate();
-  const handleLearnClick = () => nav(`/singleItem/${item.id}/learn`);
-  const handleShopClick = () => nav(`/singleItem/${item.id}/shop`);
+  const handleLearnClick = () => nav(`/learn/${item.id}`);
+  const handleShopClick = () => nav(`/shop/${item.id}`);
 
   return (
     <div className='card'>
