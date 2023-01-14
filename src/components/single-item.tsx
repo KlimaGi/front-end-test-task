@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { WineItemInterface } from '../types/main-types';
 import Button from './button';
 
@@ -7,6 +8,10 @@ type SingleItemProps = {
 }
 
 const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
+  const nav = useNavigate();
+  const handleLearnClick = () => nav(`/singleItem/${item.id}/learn`);
+  const handleShopClick = () => nav(`/singleItem/${item.id}/shop`);
+
   return (
     <div className='card'>
       <h3 className='card__title'>{item.name}</h3>
@@ -15,8 +20,8 @@ const SingleItem: React.FC<SingleItemProps> = ({ item }) => {
         <img src='assets/vino-1.png' alt='bottle of wine' />
       </div>
       <div className='card__btn-container'>
-        <Button text='learn' />
-        <Button text='shop' />
+        <Button text='learn' func={handleLearnClick} />
+        <Button text='shop' func={handleShopClick} />
       </div>
     </div>
   )

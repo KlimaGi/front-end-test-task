@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { get } from '../plugins/http';
 import { WineItemInterface } from '../types/main-types';
-import SingleItem from './single-item';
-import FilterBlock from './filter-block';
+import SingleItem from '../components/single-item';
+import FilterBlock from '../components/filter-block';
 
-const AllItems: React.FC = () => {
+const AllItemsPage: React.FC = () => {
 
   const [data, setData] = useState<WineItemInterface[]>([]);
 
@@ -50,8 +50,7 @@ const AllItems: React.FC = () => {
   )
 }
 // todo: filter istraukti i isorini elementa
-// todo: learn - shop iveiklinti su react-params
 // todo: one item page su react-params = pritaikyti solo elemento parodyma atskiram page
 // todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
 
-export default AllItems;
+export default AllItemsPage;

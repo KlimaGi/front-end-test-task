@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import SmallIcon from './small-icon';
 
 type ButtonProp = {
-  text: String
+  text: String,
+  func: Function
 }
 
-const Button: React.FC<ButtonProp> = ({ text }) => {
+const Button: React.FC<ButtonProp> = ({ text, func }) => {
   const [color, setColor] = useState('black')
   return (
     <button
+      onClick={func}
       onMouseOver={() => setColor('bordo')}
       onMouseLeave={() => setColor('black')}
       className='card__btn'

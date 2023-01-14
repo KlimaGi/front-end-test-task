@@ -1,11 +1,22 @@
 import React from 'react';
-import AllItems from './components/all-items';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import AllItemsPage from './pages/all-items-page';
+import SingleItemLearnPage from './pages/single-item-learn-page';
+import SingleItemShopPage from './pages/single-item-shop-page';
 import './styles/index.css';
 
 const App: React.FC = () => {
   return (
     <div className="main">
-      <AllItems />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AllItemsPage />} />
+          <Route path="singleItem/:id/learn" element={<SingleItemLearnPage />} />
+          <Route path="singleItem/:id/shop" element={<SingleItemShopPage />} />
+        </Routes>
+
+      </BrowserRouter>
+
     </div>
   );
 }
