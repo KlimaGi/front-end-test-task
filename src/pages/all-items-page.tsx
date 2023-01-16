@@ -1,37 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { get } from '../plugins/http';
 import { WineItemInterface } from '../types/main-types';
 import SingleItem from '../components/single-item/single-item';
 import FilterBlock from '../components/filter-block/filter-block';
+import MainContext from '../context/main-context';
 
 const AllItemsPage: React.FC = () => {
+  const { items, setItems } = useContext(MainContext);
 
-  const [data, setData] = useState<WineItemInterface[]>([]);
-
-  const [filteredData, setFilteredData] = useState<WineItemInterface[]>(data);
+  const [filteredData, setFilteredData] = useState<WineItemInterface[]>(items);
 
   const [filterTypes, setFilterTypes] = useState([]);
 
   useEffect(() => {
     const allList = async () => {
       const res = await get('./list.json');
-      console.log('res', res);
-      if (res.length > 0) setData(res);
+
+      if (res.length > 0) setItems(res);
       if (res.length === 0) console.log('there is no data');
     };
     allList();
   }, []);
 
   useEffect(() => {
-    if (data.length !== 0) {
+    if (items.length !== 0) {
       const result = filterTypes.map(type => {
-        const filteredData = data.filter(wine => wine.type === type);
+        const filteredData = items.filter((wine: WineItemInterface) => wine.type === type);
         return filteredData;
       }).flat();
 
       setFilteredData(result);
     }
-    console.log('filterTypes', filterTypes);
   }, [filterTypes])
 
   return (
@@ -42,7 +41,7 @@ const AllItemsPage: React.FC = () => {
         {
           filterTypes.length > 0
             ? filteredData.map((item) => <SingleItem item={item} key={`${item.id}`} />)
-            : data.map((item) => <SingleItem item={item} key={`${item.id}`} />)
+            : items.map((item: WineItemInterface) => <SingleItem item={item} key={`${item.id}`} />)
         }
       </div>
 

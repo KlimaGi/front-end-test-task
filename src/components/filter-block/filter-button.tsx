@@ -23,7 +23,6 @@ const FilterButton: React.FC<FilterButtonProp> = ({ text, setFilterTypes, filter
 
   }
 
-
   return (
     <button
       onClick={() => handleClick()}
