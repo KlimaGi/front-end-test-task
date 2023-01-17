@@ -42,5 +42,23 @@ border: 1px solid #690B0B;
   transform: scale(-1,1);
   transform-origin: center;
 }
+
+.container-dots{
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.dot{
+  height: 8px;
+  width: 8px;
+  background-color: grey;
+  border-radius: 50px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.dot:hover{
+  background-color: #690B0B;
+}
 /* https: //www.youtube.com/watch?v=SK9AlIbexOE */
 /* 13:14 / 16:16 */

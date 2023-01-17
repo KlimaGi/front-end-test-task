@@ -9,12 +9,26 @@ type CardSliderProps = {
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
-  const [next, setNext] = useState(4);
+  const slidesCount = 4;
+  const [next, setNext] = useState(slidesCount);
   const [prev, setPrev] = useState(0);
   const [color, setColor] = useState('black');
+  const [isMobile, setIsMobile] = useState(false);
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
 
   useEffect(() => {
-    let maxSlide = slides.length >= 4 ? 4 : slides.length;
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, [])
+
+  useEffect(() => {
+    let maxSlide = slides.length >= slidesCount ? slidesCount : slides.length;
     setNext(maxSlide);
     setPrev(0);
   }, [slides]);
@@ -44,15 +58,35 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
         }
 
       </div>
-      <div className='container-arrow'>
-        <div onClick={goToPrev}>
-          <BigIcon side='right' />
-        </div>
-        <div onClick={goToNext}>
-          <BigIcon side='left' />
-        </div>
+      <p>Width: {windowSize}</p>
+      {
+        windowSize < 501
+          ?
+          <div className='container-dots'>
+            {
+              slides.map((slide, i) => (
+                <div
+                  key={i}
+                  className='dot'
+                ></div>
+              ))
+            }
+          </div>
+          :
+          <div className='container-arrow'>
+            <div onClick={goToPrev}>
+              <BigIcon side='right' />
+            </div>
+            <div onClick={goToNext}>
+              <BigIcon side='left' />
+            </div>
+          </div>
 
-      </div>
+      }
+
+
+
+
     </div>
   )
 }
