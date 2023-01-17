@@ -80,11 +80,19 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
           </div>
           :
           <div className='container-arrow'>
-            <div onClick={goToPrev}>
-              <BigIcon side='right' />
+            <div
+              onClick={goToPrev}
+              onMouseOver={() => setColor('bordo')}
+              onMouseLeave={() => setColor('black')}
+            >
+              <BigIcon side='right' color={color} />
             </div>
-            <div onClick={goToNext}>
-              <BigIcon side='left' />
+            <div
+              onClick={goToNext}
+              onMouseOver={() => setColor('bordo')}
+              onMouseLeave={() => setColor('black')}
+            >
+              <BigIcon side='left' color={color} />
             </div>
           </div>
       }

@@ -64,4 +64,12 @@ border: 1px solid #690B0B;
 .dot--current {
   background-color: #690B0B;
 }
-
+ .icon--grey svg{
+fill: grey;
+ }
+.icon--black svg {
+  fill: #000000;
+}
+.icon--bordo svg {
+  fill: #690B0B;
+}
