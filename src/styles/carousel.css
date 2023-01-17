@@ -4,6 +4,7 @@
   display: flex;
   gap: 2rem;
   margin: 0 auto;
+  overflow: hidden;
 }
 .slider-style{
   height: 100%;
@@ -60,5 +61,7 @@ border: 1px solid #690B0B;
 .dot:hover{
   background-color: #690B0B;
 }
-/* https: //www.youtube.com/watch?v=SK9AlIbexOE */
-/* 13:14 / 16:16 */
+.dot--current {
+  background-color: #690B0B;
+}
+
