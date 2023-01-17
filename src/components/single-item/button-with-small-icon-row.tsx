@@ -7,7 +7,7 @@ type ButtonProp = {
 }
 
 const ButtonWithSmallIconRow: React.FC<ButtonProp> = ({ text, func }) => {
-  const [color, setColor] = useState('black')
+  const [color, setColor] = useState('black');
   return (
     <button
       onClick={func}

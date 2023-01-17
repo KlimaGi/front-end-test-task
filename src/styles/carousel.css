@@ -1,0 +1,47 @@
+.slide-container{
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  margin: 0 auto;
+}
+.slider-style{
+  height: 100%;
+  position: relative;
+}
+
+/* ------ arrow ----- */
+.container-arrow {
+  display: flex;
+  justify-content: end;
+  margin: 4rem 0;
+  gap: 1rem;
+}
+.arrow {
+  border: 1px solid #000000;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.arrow:hover{
+border: 1px solid #690B0B;
+}
+
+.arrow svg{
+  fill: #000000; 
+};
+.arrow svg:hover {
+  fill: #690B0B;
+}
+ 
+.arrow--right{
+  transform: scale(-1,1);
+  transform-origin: center;
+}
+/* https: //www.youtube.com/watch?v=SK9AlIbexOE */
+/* 13:14 / 16:16 */

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { get } from '../plugins/http';
 import { WineItemInterface } from '../types/main-types';
-import SingleItem from '../components/single-item/single-item';
 import FilterBlock from '../components/filter-block/filter-block';
 import MainContext from '../context/main-context';
+import CardSlider from '../components/card-slider';
 
 const AllItemsPage: React.FC = () => {
   const { items, setItems } = useContext(MainContext);
@@ -40,8 +40,8 @@ const AllItemsPage: React.FC = () => {
       <div className='container'>
         {
           filterTypes.length > 0
-            ? filteredData.map((item) => <SingleItem item={item} key={`${item.id}`} />)
-            : items.map((item: WineItemInterface) => <SingleItem item={item} key={`${item.id}`} />)
+            ? <CardSlider slides={filteredData} />
+            : <CardSlider slides={items} />
         }
       </div>
 
@@ -49,7 +49,7 @@ const AllItemsPage: React.FC = () => {
   )
 }
 
-// todo: one item page su react-params = pritaikyti solo elemento parodyma atskiram page
+
 // todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
 
 export default AllItemsPage;
