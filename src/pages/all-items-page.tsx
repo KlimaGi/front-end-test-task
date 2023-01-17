@@ -34,22 +34,24 @@ const AllItemsPage: React.FC = () => {
   }, [filterTypes])
 
   return (
-    <div>
+    <div className='container'>
       <FilterBlock filterTypes={filterTypes} setFilterTypes={setFilterTypes} />
 
-      <div className='container'>
-        {
-          filterTypes.length > 0
-            ? <CardSlider slides={filteredData} />
-            : <CardSlider slides={items} />
-        }
-      </div>
+
+      {
+        filterTypes.length > 0
+          ? <CardSlider slides={filteredData} />
+          : <CardSlider slides={items} />
+      }
+
 
     </div>
   )
 }
 
 
-// todo: library pritaikymas su media query skirtingi elementai esant skirtingam dydziui
+// todo: big icon button hover should work
+
+// todo: dots for mobile size
 
 export default AllItemsPage;

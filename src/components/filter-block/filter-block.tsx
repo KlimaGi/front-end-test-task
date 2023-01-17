@@ -10,7 +10,7 @@ const FilterBlock: React.FC<filterByProp> = ({ setFilterTypes, filterTypes }) =>
   const types = ['sweet', 'semi-dry', 'dry'];
 
   return (
-    <div className='d-flex'>
+    <div className='filter-block'>
       {
         types.map((type, i) => <FilterButton key={`k-${i}`} text={type} setFilterTypes={setFilterTypes} filterTypes={filterTypes} />)
       }

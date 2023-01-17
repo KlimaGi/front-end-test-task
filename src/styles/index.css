@@ -15,22 +15,18 @@
 }
 
 .main {
-  padding: 4rem;
+  padding: 4rem 6rem;
   background-color: var(--color-light-grey);
-  display: flex;
-  justify-content: center;
  
 }
+.container{
+width: 90%;
+margin: 0 auto;
+}
 
-.container {
+.filter-block{
   display: flex;
   margin: 1.5rem 0;
-  border: 1px solid pink;
- 
-}
-
-.d-flex{
-  display: flex;
 }
 /* -------- card -------- */
 .card{
