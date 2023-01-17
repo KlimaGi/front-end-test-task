@@ -37,20 +37,18 @@ const AllItemsPage: React.FC = () => {
     <div className='container'>
       <FilterBlock filterTypes={filterTypes} setFilterTypes={setFilterTypes} />
 
-
       {
         filterTypes.length > 0
           ? <CardSlider slides={filteredData} />
           : <CardSlider slides={items} />
       }
 
-
     </div>
   )
 }
 
 
-// todo: big icon button hover should work
+// todo: add disabled grey button style  
 
 
 export default AllItemsPage;

@@ -12,7 +12,8 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
   const slidesCount = 4;
   const [next, setNext] = useState(slidesCount);
   const [prev, setPrev] = useState(0);
-  const [color, setColor] = useState('grey');
+  const [colorR, setColorR] = useState('black');
+  const [colorLeft, setColorLeft] = useState('black');
   const [current, setCurrent] = useState(0);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
@@ -36,6 +37,7 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
   const goToPrev = () => {
     const isFirstSlide = prev === 0;
     const newBeginIndex = isFirstSlide ? 0 : prev - 1;
+    if (isFirstSlide) setColorR('grey');
     setPrev(newBeginIndex);
     const newEndIndex = isFirstSlide ? next : next - 1;
     setNext(newEndIndex);
@@ -43,6 +45,7 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
   const goToNext = () => {
     const isLastSlide = next === slides.length;
     const newBeginIndex = isLastSlide ? prev : prev + 1;
+    if (isLastSlide) setColorLeft('grey');
     setPrev(newBeginIndex);
     const newEndIndex = isLastSlide ? next : next + 1;
     setNext(newEndIndex);
@@ -82,17 +85,17 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
           <div className='container-arrow'>
             <div
               onClick={goToPrev}
-              onMouseOver={() => setColor('bordo')}
-              onMouseLeave={() => setColor('black')}
+              onMouseOver={() => setColorR('bordo')}
+              onMouseLeave={() => setColorR('black')}
             >
-              <BigIcon side='right' color={color} />
+              <BigIcon side='right' color={colorR} disabled={true} />
             </div>
             <div
               onClick={goToNext}
-              onMouseOver={() => setColor('bordo')}
-              onMouseLeave={() => setColor('black')}
+              onMouseOver={() => setColorLeft('bordo')}
+              onMouseLeave={() => setColorLeft('black')}
             >
-              <BigIcon side='left' color={color} />
+              <BigIcon side='left' color={colorLeft} disabled={true} />
             </div>
           </div>
       }

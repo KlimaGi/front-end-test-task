@@ -28,22 +28,32 @@
   border-radius: 50%;
   cursor: pointer;
 }
+.arrow .disabled {
+  border: 1px solid grey;
+}
+.arrow--right {
+  transform: scale(-1, 1);
+  transform-origin: center;
+}
+
 .arrow:hover{
 border: 1px solid #690B0B;
 }
 
-.arrow svg{
-  fill: #000000; 
-};
-.arrow svg:hover {
-  fill: #690B0B;
-}
- 
-.arrow--right{
-  transform: scale(-1,1);
-  transform-origin: center;
+.icon--grey svg {
+  fill: grey;
 }
 
+.icon--black svg {
+  fill: #000000;
+}
+
+.icon--bordo svg {
+  fill: #690B0B;
+}
+
+
+/* ----- dots nav ----- */
 .container-dots{
   display: flex;
   justify-content: center;
@@ -64,12 +74,4 @@ border: 1px solid #690B0B;
 .dot--current {
   background-color: #690B0B;
 }
- .icon--grey svg{
-fill: grey;
- }
-.icon--black svg {
-  fill: #000000;
-}
-.icon--bordo svg {
-  fill: #690B0B;
-}
+
