@@ -12,8 +12,8 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
   const slidesCount = 4;
   const [next, setNext] = useState(slidesCount);
   const [prev, setPrev] = useState(0);
-  const [color, setColor] = useState('black');
-  const [isMobile, setIsMobile] = useState(false);
+  const [color, setColor] = useState('grey');
+  const [current, setCurrent] = useState(0);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
 
@@ -48,6 +48,12 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
     setNext(newEndIndex);
   }
 
+  const goToIndex = (slideIndex: number) => {
+    setPrev(slideIndex);
+    setNext(slideIndex + 1);
+    setCurrent(slideIndex);
+  };
+
   return (
     <div className='slider-style'>
       <div className='slide-container'>
@@ -58,16 +64,16 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
         }
 
       </div>
-      <p>Width: {windowSize}</p>
       {
         windowSize < 501
           ?
           <div className='container-dots'>
             {
-              slides.map((slide, i) => (
+              slides.map((_, i) => (
                 <div
                   key={i}
-                  className='dot'
+                  className={`dot ${i === current && 'dot--current'}`}
+                  onClick={() => goToIndex(i)}
                 ></div>
               ))
             }
@@ -81,12 +87,7 @@ const CardSlider: React.FC<CardSliderProps> = ({ slides }) => {
               <BigIcon side='left' />
             </div>
           </div>
-
       }
-
-
-
-
     </div>
   )
 }

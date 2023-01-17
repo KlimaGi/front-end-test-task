@@ -52,6 +52,5 @@ const AllItemsPage: React.FC = () => {
 
 // todo: big icon button hover should work
 
-// todo: dots for mobile size
 
 export default AllItemsPage;
